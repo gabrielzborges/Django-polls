@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <h1>{{question.question_text}}</h1>
+        <ul class="list-group">
+            {% for choice in question.choice_set.all %}
+            <li class="list-group-item">{{choice.choice_text}} - {{choice.votes}} vote{{choice.votes|pluralize}}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'polls:detail' question.id %}" class="btn btn-link">Vote again?</a>
+    </div>
+</div>
+{% endblock %}

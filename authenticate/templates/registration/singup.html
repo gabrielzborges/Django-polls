@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Sing Up {% endblock %}
+
+{% block main %}
+<div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <h2>Sing Up</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|bootstrap}}
+            <button type="submit" class="btn btn-info">Sing Up</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
